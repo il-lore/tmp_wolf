@@ -1,0 +1,82 @@
+// #########################
+// ## PROJECT INFORMATION ##
+// #########################
+group 'it.aegidea'
+version '0.1-SNAPSHOT'
+
+description =
+        """
+        Wolf build script.
+        Property of Aegidea s.r.l.
+        """
+
+
+// #######################
+// ## BUILD INFORMATION ##
+// #######################
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.M7'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: "${springBootVersion}"
+    }
+}
+
+// ######################
+// ## JAVA INFORMATION ##
+// ######################
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.9
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    // ##### COMPILE DEPENDENCIES
+    // DATABASE
+    compile     group: 'mysql',                     name: 'mysql-connector-java'
+
+    // SPRING
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-devtools'
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-starter-data-jpa'
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-starter-json'
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-starter-security'
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-starter-thymeleaf'
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-starter-tomcat'
+    compile     group: 'org.springframework.boot',  name: 'spring-boot-starter-web'
+
+    // THYMELEAF
+    compile     group: 'nz.net.ultraq.thymeleaf',   name: 'thymeleaf-layout-dialect',  version: '2.2.2'
+
+    // WEB JAVASCRIPT LIBS
+    compile     group: 'org.webjars',               name: 'webjars-locator',  version: '0.32-1'
+    compile     group: 'org.webjars',               name: 'bootstrap',        version: '4.0.0-beta.3'
+
+
+
+    // ##### PROVIDED LIBRARIES
+    // SPRING
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
+
+
+
+    // ##### TEST DEPENDENCIES
+    // SPRING
+    testCompile group: 'org.springframework.boot',  name: 'spring-boot-starter-test'
+
+    // JUNIT
+    testCompile group: 'junit',                     name: 'junit',            version: '4.12'
+}

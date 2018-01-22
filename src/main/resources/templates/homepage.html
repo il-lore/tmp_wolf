@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html
+        lang="en"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{commons/layout}">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Wolf</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <p th:text="'Hello World!'" >Hello World!</p>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-success">This is a success button</button>
+                <button type="button" class="btn btn-warning">This is a warning button</button>
+                <button type="button" class="btn btn-danger">This is a danger button</button>
+            </div>
+        </div>
+    </body>
+</html>

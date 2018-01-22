@@ -1,0 +1,13 @@
+# IntelliJ Files
+.idea
+
+# Build files
+build
+out
+
+#Gradle executables and folders
+.gradle
+gradle
+gradlew
+gradlew.bat
+
